@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>James Adam</string>
+	<key>Builder Version</key>
+	<string>14606.2.104.1.1</string>
+	<key>CFBundleDisplayName</key>
+	<string>Development Site Switch</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.lazyatom.safari-developer-site-switch</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>Chrome</key>
+	<dict>
+		<key>Database Quota</key>
+		<integer>1048576</integer>
+		<key>Global Page</key>
+		<string>index.html</string>
+		<key>Toolbar Items</key>
+		<array>
+			<dict>
+				<key>Identifier</key>
+				<string>toggle-developer-site</string>
+				<key>Image</key>
+				<string>icon.png</string>
+				<key>Include By Default</key>
+				<true/>
+				<key>Label</key>
+				<string>Toggle</string>
+				<key>Palette Label</key>
+				<string>Switch to other site</string>
+				<key>Tool Tip</key>
+				<string>Switch to other site</string>
+			</dict>
+		</array>
+	</dict>
+	<key>Description</key>
+	<string>Switch from development to production versions of your website</string>
+	<key>ExtensionInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>Permissions</key>
+	<dict>
+		<key>Website Access</key>
+		<dict>
+			<key>Include Secure Pages</key>
+			<true/>
+			<key>Level</key>
+			<string>All</string>
+		</dict>
+	</dict>
+	<key>Website</key>
+	<string>http://lazyatom.com/safari-developer-site-switch</string>
+</dict>
+</plist>

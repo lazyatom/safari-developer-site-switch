@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Development site switch</title>
+    <script type="text/javascript">
+
+     var developmentSite = safari.extension.settings.developmentSite;
+     var productionSite = safari.extension.settings.productionSite;
+
+     function settingsChanged() {
+       developmentSite = safari.extension.settings.developmentSite;
+       productionSite = safari.extension.settings.productionSite;
+     }
+
+     function productionize(url) {
+       return url.replace(developmentSite, productionSite);
+     }
+
+     function developmentize(url) {
+       return url.replace(productionSite, developmentSite);
+     }
+
+     function isProduction(url) {
+       return url.startsWith(productionSite);
+     }
+
+     function isDevelopment(url) {
+       return url.startsWith(developmentSite);
+     }
+
+     function toggleDeveloperSite(event)
+     {
+       if (event.command === "toggle-developer-site") {
+         var currentURL = event.target.browserWindow.activeTab.url;
+         if (currentURL) {
+           if (isDevelopment(currentURL)) {
+             event.target.browserWindow.activeTab.url = productionize(currentURL);
+           } else {
+             if (isProduction(currentURL)) {
+               event.target.browserWindow.activeTab.url = developmentize(currentURL);
+             }
+           }
+         }
+       }
+     }
+
+     function validateDeveloperToggle(event)
+     {
+       /* developmentSite = safari.extension.settings.developmentSite; */
+       /* productionSite = safari.extension.settings.productionSite; */
+
+       if (event.command === "toggle-developer-site") {
+         var currentURL = event.target.browserWindow.activeTab.url;
+         event.target.disabled = !(isProduction(currentURL) || isDevelopment(currentURL));
+       }
+     }
+
+     safari.application.addEventListener("command", toggleDeveloperSite, false);
+     safari.application.addEventListener("validate", validateDeveloperToggle, false);
+     safari.extension.settings.addEventListener("change", settingsChanged, false);
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
